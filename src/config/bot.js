@@ -541,6 +541,7 @@ export function getRandomColor() {
   );
   return colors[Math.floor(Math.random() * colors.length)];
 }
+const PREFIX = "!";
 
 export default botConfig;
 
