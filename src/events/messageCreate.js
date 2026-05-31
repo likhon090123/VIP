@@ -114,4 +114,33 @@ async function handleLeveling(message, client) {
   }
 }
 
+export default {
+  name: "messageCreate",
+  async execute(message) {
+    if (message.author.bot) return;
+
+    const prefix = "!";
+    if (!message.content.startsWith(prefix)) return;
+
+    const args = message.content.slice(prefix.length).trim().split(/ +/);
+    const cmd = args.shift().toLowerCase();
+
+    if (cmd === "coinflip") {
+      const choice = args[0]?.toLowerCase();
+
+      if (!["heads", "tails"].includes(choice)) {
+        return message.reply("Usage: !coinflip <heads/tails>");
+      }
+
+      const result = Math.random() < 0.5 ? "heads" : "tails";
+
+      return message.reply(
+        result === choice
+          ? `🪙 Coin landed on **${result}**!\n🎉 You won!`
+          : `🪙 Coin landed on **${result}**!\n💀 You lost!`
+      );
+    }
+  },
+};
+
 
