@@ -12,7 +12,7 @@ const PAYOUT_MULTIPLIER = 2.0;
 const GAMBLE_COOLDOWN = 1 * 60 * 1000;
 
 export default {
-    data: new comaCommandBuilder()
+    data: new slashCommandBuilder()
         .setName('gamble')
         .setDescription('Gamble your money for a chance to win more')
         .addIntegerOption(option =>
